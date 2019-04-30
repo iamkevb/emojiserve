@@ -1,6 +1,16 @@
-import * as express from 'express';
+import express from 'express';
+import GraphQLHTTP from 'express-graphql';
+import schema from './graph/schema';
+
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => res.send('Hello, Typescript World'));
+app.use('/', (request: express.Request, response: express.Response) => {
+  GraphQLHTTP({
+    graphiql: true,
+    schema,
+  })(request, response);
+});
+
+// tslint:disable-next-line: no-console
 app.listen(port, () => console.log(`server running on port ${port}`));
