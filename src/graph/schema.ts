@@ -1,9 +1,10 @@
 import { GraphQLObjectType, GraphQLSchema } from 'graphql';
-import { emojiQuery, emojisQuery } from './query';
+import { categoriesQuery, emojiQuery, emojisQuery } from './query';
 
 const queries = {
   emoji: emojiQuery,
-  emojis: emojisQuery
+  emojis: emojisQuery,
+  categories: categoriesQuery,
 };
 
 const schema = new GraphQLSchema({

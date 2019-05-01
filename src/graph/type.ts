@@ -42,6 +42,12 @@ const emojiType = new GraphQLObjectType({
           return emoji.description;
         },
       },
+      category: {
+        type: GraphQLString,
+        resolve(emoji) {
+          return emoji.category;
+        },
+      },
       keywords: {
         type: new GraphQLList(GraphQLString),
         resolve(emoji) {

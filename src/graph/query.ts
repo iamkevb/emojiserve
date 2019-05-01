@@ -22,7 +22,23 @@ export const emojiQuery = {
 
 export const emojisQuery = {
   type: new GraphQLList(emojiType),
+  args: {
+    category: {
+      type: GraphQLString,
+    }
+  },
+  resolve(root: any, args: any) {
+    if (args.category === undefined) { return emojis; }
+    return emojis.filter((e) => {
+      return e.category === args.category;
+    });
+  }
+};
+
+export const categoriesQuery = {
+  type: new GraphQLList(GraphQLString),
   resolve() {
-    return emojis;
+    const categories = emojis.map((e) => e.category);
+    return new Set(categories);
   }
 };

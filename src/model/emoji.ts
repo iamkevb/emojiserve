@@ -28,5 +28,4 @@ export function load(): Emoji[] {
   return all;
 }
 
-
-load()
+load();
