@@ -8,7 +8,7 @@ const port = 3000;
 app.use('/', (request: express.Request, response: express.Response) => {
   GraphQLHTTP({
     graphiql: true,
-    schema,
+    schema
   })(request, response);
 });
 
