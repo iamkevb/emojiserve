@@ -1,25 +1,28 @@
-import { GraphQLNonNull, GraphQLString } from 'graphql';
+import { GraphQLList, GraphQLNonNull, GraphQLString } from 'graphql';
 import { load } from '../model/emoji';
 import emojiType from './type';
 
 const emojis = load();
 
-const emojiQuery = {
+export const emojiQuery = {
   type: emojiType,
   args: {
-    name: {
+    value: {
       type: new GraphQLNonNull(GraphQLString),
     },
   },
   resolve(root: any, args: any) {
-    const name = args.name;
-    console.log("emoji name: ", name);
+    const value = args.value;
     const emoji = emojis.filter((e) => {
-      console.log(e.name, ":::", name);
-      return e.name === name;
+      return e.emoji === value;
     });
     return emoji[0];
   },
 };
 
-export default emojiQuery;
+export const emojisQuery = {
+  type: new GraphQLList(emojiType),
+  resolve() {
+    return emojis;
+  }
+};
