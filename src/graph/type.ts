@@ -1,7 +1,7 @@
-import { GraphQLList, GraphQLObjectType, GraphQLString } from "graphql";
+import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql';
 
 const skinType = new GraphQLObjectType({
-  name: "skin",
+  name: 'skin',
   fields() {
     return {
       hexcode: {
@@ -21,7 +21,7 @@ const skinType = new GraphQLObjectType({
 });
 
 const emojiType = new GraphQLObjectType({
-  name: "emoji",
+  name: 'emoji',
   fields() {
     return {
       name: {

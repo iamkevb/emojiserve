@@ -1,6 +1,6 @@
-import { GraphQLList, GraphQLNonNull, GraphQLString } from "graphql";
-import { load } from "../model/emoji";
-import emojiType from "./type";
+import { GraphQLList, GraphQLNonNull, GraphQLString } from 'graphql';
+import { load } from '../model/emoji';
+import emojiType from './type';
 
 const emojis = load();
 

@@ -1,4 +1,4 @@
-import data from "./emoji_list.json";
+import data from './emoji_list.json';
 
 interface RootObject {
   [category: string]: Emoji[];
